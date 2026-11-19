@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>陳秀玲的名片</title>
+    <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <script>
+        //==========================LIFF API初始化================================
+       $(document).ready(function () {
+            // 1. 初始化 LIFF
+            liff.init({
+                liffId: "2012022010-mk7EpNEw"
+            }).then(() => {
+                // 如果是在外部瀏覽器打開且未登入，引導登入
+                if (!liff.isLoggedIn()) {
+                    liff.login();
+                    return;
+                }
+
+                // 2. 檢查 API 是否可用並自動觸發分享
+                if (liff.isApiAvailable('shareTargetPicker')) {
+                    autoShareAndClose();
+                } else {
+                    alert("目前環境無法使用 shareTargetPicker API，請確認後台設定或使用 LINE 打開！");
+                }
+            }).catch((err) => {
+                console.error("LIFF 初始化失敗", err);
+                alert("初始化失敗：" + err.message);
+            });
+        });
+
+        // 自動分享並關閉視窗
+        function autoShareAndClose() {
+            // 這裡發送的是你的黃色小鴨名片卡片
+            liff.shareTargetPicker([
+                {
+                    type: "flex",
+                    altText: "支持秀玲持續守護健康，打造樂齡幸福城市",
+                    contents: {
+  "type": "carousel",
+  "contents": [
+    {
+      "type": "bubble",
+      "size": "giga",
+      "hero": {
+        "type": "image",
+        "size": "full",
+        "aspectMode": "fit",
+        "aspectRatio": "600:840",
+        "margin": "none",
+        "position": "relative",
+        "url": "https://r2.uploads.tw/2026/11/YFr05QvwGy.webp",
+        "animated": false,
+        "action": {
+          "type": "uri",
+          "label": "action",
+          "uri": "https://show0.tw/?openExternalBrowser=1"
+        }
+      },
+      "body": {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "秀玲官網",
+              "uri": "https://show0.tw/?openExternalBrowser=1"
+            },
+            "height": "sm",
+            "style": "primary",
+            "margin": "xs",
+            "color": "#D72681",
+            "gravity": "center",
+            "scaling": true,
+            "adjustMode": "shrink-to-fit"
+          },
+          {
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "Facebook",
+              "uri": "https://www.facebook.com/share/1FQohgiVRE/?openExternalBrowser=1"
+            },
+            "height": "sm",
+            "style": "primary",
+            "margin": "xs",
+            "color": "#D72681",
+            "gravity": "center",
+            "scaling": true,
+            "adjustMode": "shrink-to-fit"
+          },
+          {
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "點我分享",
+              "uri": "https://joinus-tw520.pse.is/9w6p99"
+            },
+            "height": "sm",
+            "style": "primary",
+            "margin": "xs",
+            "color": "#D72681",
+            "position": "relative",
+            "gravity": "center",
+            "scaling": true,
+            "adjustMode": "shrink-to-fit"
+          }
+        ],
+        "position": "relative"
+      }
+    },
+    {
+      "type": "bubble",
+      "size": "giga",
+      "hero": {
+        "type": "image",
+        "size": "full",
+        "aspectMode": "fit",
+        "aspectRatio": "600:840",
+        "margin": "none",
+        "position": "relative",
+        "url": "https://r2.uploads.tw/2026/11/MufJ61zHrX.webp",
+        "animated": false,
+        "action": {
+          "type": "uri",
+          "label": "action",
+          "uri": "https://show0.tw/about/?openExternalBrowser=1"
+        }
+      },
+      "body": {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "認識秀玲",
+              "uri": "https://show0.tw/about/?openExternalBrowser=1"
+            },
+            "height": "sm",
+            "style": "primary",
+            "margin": "xs",
+            "color": "#D72681",
+            "gravity": "center",
+            "scaling": true,
+            "adjustMode": "shrink-to-fit"
+          }
+        ],
+        "position": "relative"
+      }
+    },
+    {
+      "type": "bubble",
+      "size": "giga",
+      "hero": {
+        "type": "image",
+        "size": "full",
+        "aspectMode": "fit",
+        "aspectRatio": "600:840",
+        "margin": "none",
+        "position": "relative",
+        "url": "https://r2.uploads.tw/2026/11/KWPS4bqGX7.webp",
+        "animated": false,
+        "action": {
+          "type": "uri",
+          "label": "action",
+          "uri": "https://show0.tw/profile/?openExternalBrowser=1"
+        }
+      },
+      "body": {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "button",
+            "height": "sm",
+            "style": "primary",
+            "margin": "xs",
+            "color": "#D72681",
+            "gravity": "center",
+            "scaling": true,
+            "adjustMode": "shrink-to-fit",
+            "action": {
+              "type": "uri",
+              "label": "更多資訊",
+              "uri": "https://show0.tw/profile/?openExternalBrowser=1"
+            }
+          }
+        ],
+        "position": "relative"
+      }
+    },
+    {
+      "type": "bubble",
+      "size": "giga",
+      "hero": {
+        "type": "image",
+        "size": "full",
+        "aspectMode": "fit",
+        "aspectRatio": "600:840",
+        "margin": "none",
+        "position": "relative",
+        "url": "https://r2.uploads.tw/2026/11/wZz19CF6lp.webp",
+        "animated": false,
+        "action": {
+          "type": "uri",
+          "label": "action",
+          "uri": "https://show0.tw/policies/?openExternalBrowser=1"
+        }
+      },
+      "body": {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "button",
+            "height": "sm",
+            "style": "primary",
+            "margin": "xs",
+            "color": "#D72681",
+            "gravity": "center",
+            "scaling": true,
+            "adjustMode": "shrink-to-fit",
+            "action": {
+              "type": "uri",
+              "label": "政見與願景",
+              "uri": "https://show0.tw/policies/?openExternalBrowser=1"
+            }
+          }
+        ],
+        "position": "relative",
+        "margin": "none"
+      }
+    },
+    {
+      "type": "bubble",
+      "size": "giga",
+      "hero": {
+        "type": "image",
+        "size": "full",
+        "aspectMode": "fit",
+        "aspectRatio": "600:840",
+        "margin": "none",
+        "position": "relative",
+        "url": "https://r2.uploads.tw/2026/11/thlisobw2K.webp",
+        "animated": false,
+        "action": {
+          "type": "uri",
+          "label": "action",
+          "uri": "https://show0.tw/service/?openExternalBrowser=1"
+        }
+      },
+      "body": {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "button",
+            "height": "sm",
+            "style": "primary",
+            "margin": "xs",
+            "color": "#D72681",
+            "gravity": "center",
+            "scaling": true,
+            "adjustMode": "shrink-to-fit",
+            "action": {
+              "type": "uri",
+              "label": "服務與監督",
+              "uri": "https://show0.tw/service/?openExternalBrowser=1"
+            }
+          }
+        ],
+        "position": "relative",
+        "margin": "none"
+      }
+    },
+    {
+      "type": "bubble",
+      "size": "giga",
+      "hero": {
+        "type": "image",
+        "size": "full",
+        "aspectMode": "fit",
+        "aspectRatio": "600:840",
+        "margin": "none",
+        "position": "relative",
+        "url": "https://r2.uploads.tw/2026/11/wLivOZEwdt.webp",
+        "animated": false
+      },
+      "body": {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "text",
+            "contents": [
+              {
+                "type": "span",
+                "text": "懇請支持竹北西區議員候選人⓷陳秀玲\n",
+                "size": "sm",
+                "style": "normal",
+                "decoration": "none",
+                "weight": "bold"
+              },
+              {
+                "type": "span",
+                "text": "#無黨年輕最敢拼 #理工專業最認真",
+                "size": "xs"
+              }
+            ],
+            "wrap": true,
+            "scaling": false,
+            "adjustMode": "shrink-to-fit"
+          }
+        ],
+        "position": "relative"
+      }
+    }
+  ]
+}
+                }
+            ], {
+                isMultiple: true,
+            })
+            .then((res) => {
+                // 不論使用者點擊分享或是關閉選擇器，只要流程結束就關閉 LIFF 視窗
+                if (liff.isInClient()) {
+                    liff.closeWindow();
+                }
+            })
+            .catch((err) => {
+                console.error("分享出錯或取消:", err);
+                // 出現異常或取消時也自動關閉
+                if (liff.isInClient()) {
+                    liff.closeWindow();
+                }
+            });
+        }
+    </script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f7f7f7;
+            font-family: sans-serif;
+            color: #666;
+        }
+        .loading-box {
+            text-align: center;
+        }
+        //==========================LIFF API初始化================================
+
+       
+
+</html>
